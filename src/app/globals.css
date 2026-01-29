@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-nyc-orange: #FF6319;
+  --color-nyc-orange-dark: #E55A16;
+  --color-nyc-blue: #0039A6;
+  --color-nyc-blue-light: #0052CC;
+  --color-nyc-yellow: #FCCC0A;
+  --color-navy: #1A1A2E;
+  --color-navy-light: #2D2D44;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: #ffffff;
+  color: #2C3E50;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
