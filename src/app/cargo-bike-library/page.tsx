@@ -41,6 +41,7 @@ export default function CargoBikeLibraryPage() {
         <h2 className="text-2xl font-semibold mb-4 text-nyc-orange">Become a Bike Librarian</h2>
         <p className="text-gray-700 mb-4">
           Have space to store a cargo bike or a cargo bike you&apos;d like to donate to the community?
+          Join our network of volunteer bike librarians! You&apos;ll help families discover the joy of cargo biking.
         </p>
         <a
           href="/participate"
