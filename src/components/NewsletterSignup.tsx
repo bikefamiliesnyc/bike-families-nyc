@@ -18,9 +18,10 @@ export default function NewsletterSignup({ variant = "default" }: NewsletterSign
       const response = await fetch("https://formspree.io/f/mwvbvavv", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
+          "Accept": "application/json",
         },
-        body: new URLSearchParams({ email }).toString(),
+        body: JSON.stringify({ email }),
       });
 
       if (response.ok) {
