@@ -52,7 +52,7 @@ export default function NewsletterSignup({ variant = "default" }: NewsletterSign
     return (
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <p className="text-blue-100 mb-4">
-          Get weekly ride updates, family biking tips, advocacy opportunities, and event announcements.
+          Get monthly ride updates, family biking tips, advocacy opportunities, and event announcements.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <input
@@ -112,7 +112,7 @@ export default function NewsletterSignup({ variant = "default" }: NewsletterSign
     <form onSubmit={handleSubmit} className="bg-nyc-yellow/20 p-8 rounded-lg">
       <h3 className="text-xl font-bold text-navy mb-2">Join our newsletter</h3>
       <p className="text-gray-600 mb-4">
-        Get weekly ride updates, family biking tips, advocacy opportunities, and event announcements.
+        Get monthly ride updates, family biking tips, advocacy opportunities, and event announcements.
       </p>
       <div className="flex flex-col sm:flex-row gap-3">
         <input
