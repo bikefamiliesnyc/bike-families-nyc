@@ -339,28 +339,17 @@
     document.getElementById('referrer').value = document.referrer || 'Direct';
     document.getElementById('user-agent').value = navigator.userAgent;
 
-    document.getElementById('interest-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const submitButton = form.querySelector('button[type="submit"]');
-
-      submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
-
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      const scriptUrl = 'https://script.google.com/macros/s/AKfycbz94RJz2iYQH5twdNEX0clGGfQquuql3LKsfFNki42ZxUzJZxZGrGWeUEKPAAPoeBKz/exec';
-
+    function silentPost(url, data) {
+      const name = 'hidden-iframe-' + Math.random().toString(36).slice(2);
       const iframe = document.createElement('iframe');
-      iframe.name = 'hidden-iframe-interest';
+      iframe.name = name;
       iframe.style.display = 'none';
       document.body.appendChild(iframe);
 
       const tempForm = document.createElement('form');
       tempForm.method = 'POST';
-      tempForm.action = scriptUrl;
-      tempForm.target = 'hidden-iframe-interest';
+      tempForm.action = url;
+      tempForm.target = name;
       tempForm.style.display = 'none';
 
       Object.keys(data).forEach(key => {
@@ -375,9 +364,45 @@
       tempForm.submit();
 
       setTimeout(() => {
-        submitButton.textContent = "Thanks. We'll be in touch.";
         document.body.removeChild(tempForm);
         document.body.removeChild(iframe);
+      }, 1000);
+    }
+
+    document.getElementById('interest-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      const wantsCargoBike = form.querySelector('[name="interested_cargo_bike"]').checked;
+      const wantsLessons = form.querySelector('[name="interested_bike_lessons"]').checked;
+
+      if (!wantsCargoBike && !wantsLessons) {
+        alert('Please check at least one box so we know what you\'re interested in.');
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      if (wantsCargoBike) {
+        silentPost('https://script.google.com/macros/s/AKfycbz94RJz2iYQH5twdNEX0clGGfQquuql3LKsfFNki42ZxUzJZxZGrGWeUEKPAAPoeBKz/exec', data);
+      }
+
+      if (wantsLessons) {
+        silentPost('https://formsubmit.co/bikefamiliesnyc@gmail.com', {
+          name: data.name,
+          email: data.email,
+          _subject: 'Bike lesson interest — PS11 Learn to Ride Day',
+          _captcha: 'false'
+        });
+      }
+
+      setTimeout(() => {
+        submitButton.textContent = "Thanks. We'll be in touch.";
       }, 500);
     });
   </script>
