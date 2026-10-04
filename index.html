@@ -138,6 +138,19 @@
     font-size: 0.85rem;
     color: var(--text-light);
   }
+  .submit-event-btn {
+    margin-left: auto;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #fff;
+    background: var(--accent-color, var(--skyline));
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .submit-event-btn:hover { opacity: 0.85; }
 
   .listing { display: flex; flex-direction: column; }
   .row {
@@ -214,6 +227,7 @@
     <a href="#events">Events</a>
     <a href="#advocate">Advocate</a>
     <a href="#city">City programs</a>
+    <a href="#businesses">Businesses</a>
     <a href="#press">Press</a>
   </nav>
 </div>
@@ -321,6 +335,7 @@
     <div class="category-head">
       <h2>Events</h2>
       <span class="count">2 upcoming</span>
+      <a class="submit-event-btn" href="mailto:bikefamiliesnyc@gmail.com?subject=Event%20submission%20for%20Bike%20Families%20NYC">Submit an event</a>
     </div>
     <div class="listing">
       <div class="row">
@@ -343,7 +358,7 @@
   <div class="category" id="advocate" style="--accent-color: var(--skyline); --accent-color-pale: var(--skyline-pale);">
     <div class="category-head">
       <h2>Advocate for safer streets</h2>
-      <span class="count">2 organizations</span>
+      <span class="count">3 organizations</span>
     </div>
     <div class="listing">
       <div class="row">
@@ -360,15 +375,6 @@
         </div>
         <span class="tag">advocacy</span>
       </div>
-    </div>
-  </div>
-
-  <div class="category" id="city" style="--accent-color: var(--fort-greene); --accent-color-pale: var(--yellow-pale);">
-    <div class="category-head">
-      <h2>City programs</h2>
-      <span class="count">2 programs</span>
-    </div>
-    <div class="listing">
       <div class="row">
         <div>
           <h3><a href="https://www.nyc.gov/OpenStreets" target="_blank" rel="noopener">Open Streets</a></h3>
@@ -376,12 +382,44 @@
         </div>
         <span class="tag">nyc dot</span>
       </div>
+    </div>
+  </div>
+
+  <div class="category" id="city" style="--accent-color: var(--fort-greene); --accent-color-pale: var(--yellow-pale);">
+    <div class="category-head">
+      <h2>City programs</h2>
+      <span class="count">1 program</span>
+    </div>
+    <div class="listing">
       <div class="row">
         <div>
           <h3><a href="https://www.nyc.gov/saferoutes" target="_blank" rel="noopener">Safe Routes to School</a></h3>
           <p>NYC DOT program and mapping tool for school-area traffic safety.</p>
         </div>
         <span class="tag">nyc dot</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="businesses" style="--accent-color: var(--pink); --accent-color-pale: var(--pink-pale);">
+    <div class="category-head">
+      <h2>Bike-friendly businesses</h2>
+      <span class="count">2 listings</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="https://principlesbk.nyc/" target="_blank" rel="noopener">Principles GI Coffee House</a></h3>
+          <p>Gowanus cafe with bike stands and tools in the back — widely considered one of NYC's most bike-friendly spots to stop.</p>
+        </div>
+        <span class="tag">cafe</span>
+      </div>
+      <div class="row">
+        <div>
+          <h3><a href="https://bikeleague.org/bfa/business/" target="_blank" rel="noopener">Bicycle Friendly Business</a></h3>
+          <p>League of American Bicyclists program recognizing employers that support bicycling. Know a business that should apply?</p>
+        </div>
+        <span class="tag">national program</span>
       </div>
     </div>
   </div>
