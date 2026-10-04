@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bike Families NYC</title>
+<meta name="description" content="A directory of family biking resources across New York City — group rides, learn-to-ride programs, school bike days, advocacy, and news.">
+<style>
+  @font-face {
+    font-family: 'P22 Mackinac Pro';
+    src: url('fonts/P22MackinacPro-Medium_26.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Halyard Display';
+    src: url('fonts/fonnts.com-Halyard_Display_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Halyard Display';
+    src: url('fonts/fonnts.com-Halyard_Display_Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Anonymous Pro';
+    src: url('fonts/AnonymousPro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --font-display: 'P22 Mackinac Pro', Georgia, serif;
+    --font-body: 'Halyard Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-accent: 'Anonymous Pro', 'Courier New', monospace;
+
+    --skyline: #79A3DB;
+    --skyline-pale: #CCDCFF;
+    --bike-lane-black: #06272E;
+    --cream: #F9F5EE;
+    --pink: #F295CE;
+    --pink-pale: #FAD9F1;
+    --yellow: #FBDF52;
+    --yellow-pale: #FEF1C0;
+    --fort-greene: #D7C725;
+    --text-light: #4B6066;
+    --border: #E3DFD2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--bike-lane-black);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; line-height: 1; }
+  .accent {
+    font-family: var(--font-accent);
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* masthead */
+  .masthead { padding-block: 3rem 1.5rem; border-bottom: 3px solid var(--skyline); }
+  .masthead .eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--bike-lane-black);
+    opacity: 0.7;
+    margin-bottom: 0.75rem;
+  }
+  .masthead h1 {
+    font-size: clamp(2.5rem, 7vw, 3.75rem);
+    font-weight: 500;
+    text-wrap: balance;
+    color: var(--bike-lane-black);
+  }
+  .masthead h1 em {
+    font-style: normal;
+    background: linear-gradient(transparent 62%, var(--yellow) 62%);
+  }
+  .masthead p {
+    margin-top: 1rem;
+    max-width: 48ch;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--text-light);
+  }
+
+  nav.routes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 1.5rem 0 2.25rem;
+  }
+  nav.routes a {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--bike-lane-black);
+    text-decoration: none;
+    border: 2px solid var(--bike-lane-black);
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
+    white-space: nowrap;
+  }
+  nav.routes a:hover { background: var(--bike-lane-black); color: var(--cream); }
+
+  main { padding-bottom: 3rem; }
+
+  .category { padding-top: 2.75rem; }
+  .category:first-child { padding-top: 0; }
+  .category-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 3px solid var(--accent-color, var(--skyline));
+  }
+  .category-head h2 {
+    font-size: 1.65rem;
+    font-weight: 500;
+    color: var(--bike-lane-black);
+  }
+  .category-head .count {
+    font-family: var(--font-accent);
+    text-transform: lowercase;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+
+  .listing { display: flex; flex-direction: column; }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1rem 1.25rem;
+    padding: 1.1rem 1.25rem;
+    border-left: 5px solid var(--accent-color, var(--skyline));
+    background: #fff;
+    margin-bottom: 0.65rem;
+    border-radius: 0 10px 10px 0;
+  }
+  .row.pending {
+    border-left: 5px dashed var(--pink);
+    background: repeating-linear-gradient(135deg, #fff, #fff 12px, var(--pink-pale) 12px, var(--pink-pale) 24px);
+  }
+  .row h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  .row h3 a { color: var(--bike-lane-black); text-decoration: none; border-bottom: 2px solid var(--skyline-pale); }
+  .row h3 a:hover { border-color: var(--skyline); }
+  .row p { font-size: 0.97rem; color: var(--text-light); line-height: 1.5; max-width: 52ch; }
+  .tag {
+    align-self: start;
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: var(--bike-lane-black);
+    background: var(--accent-color-pale, var(--skyline-pale));
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    white-space: nowrap;
+  }
+  .tag.needs { color: #9c3f78; background: var(--pink-pale); }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 1fr; }
+    .tag { justify-self: start; }
+  }
+
+  footer {
+    border-top: 3px solid var(--fort-greene);
+    padding: 2.25rem 0 3rem;
+  }
+  footer .wordmark {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--bike-lane-black);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  footer p { font-size: 0.9rem; color: var(--text-light); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow accent">a directory for nyc · updated october 2026</p>
+    <h1>Bike families, <em>NYC</em></h1>
+    <p>Everything a biking family in New York City needs in one place — group rides, learn-to-ride programs, school bike days, and the people fighting for safer streets.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="routes" aria-label="Jump to section">
+    <a href="#ride">Ride</a>
+    <a href="#learn">Learn</a>
+    <a href="#events">Events</a>
+    <a href="#advocate">Advocate</a>
+    <a href="#city">City programs</a>
+    <a href="#press">Press</a>
+  </nav>
+</div>
+
+<main class="wrap">
+
+  <div class="category" id="ride" style="--accent-color: var(--skyline); --accent-color-pale: var(--skyline-pale);">
+    <div class="category-head">
+      <h2>Ride with other families</h2>
+      <span class="count">3 resources</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="https://www.bikebus.nyc/" target="_blank" rel="noopener">Bike Bus NYC</a></h3>
+          <p>Weekly group bike rides to school — Bergen Bike Bus (Wednesdays) and PS 770 Bike Bus (Fridays).</p>
+        </div>
+        <span class="tag">weekly ride</span>
+      </div>
+      <div class="row">
+        <div>
+          <h3><a href="https://www.bikebus.nyc/events-2-1" target="_blank" rel="noopener">Kidical Mass NYC</a></h3>
+          <p>Monthly family bike rides with volunteer safety marshals — run jointly by Coach Rosa and Bike Bus NYC. They organized PS11 Family Bike Day.</p>
+        </div>
+        <span class="tag">monthly ride</span>
+      </div>
+      <div class="row pending">
+        <div>
+          <h3>Central Brooklyn Bike Parent</h3>
+          <p>Local WhatsApp chat for biking families in Central Brooklyn.</p>
+        </div>
+        <span class="tag needs">needs invite link</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="learn" style="--accent-color: var(--fort-greene); --accent-color-pale: var(--yellow-pale);">
+    <div class="category-head">
+      <h2>Learn to ride</h2>
+      <span class="count">4 resources</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="https://coachrosa.nyc/cargo-bike-lessons-brooklyn-nyc/" target="_blank" rel="noopener">Coach Rosa</a></h3>
+          <p>Kids' bike-riding lessons, including cargo bike lessons for families.</p>
+        </div>
+        <span class="tag">lessons</span>
+      </div>
+      <div class="row">
+        <div>
+          <h3><a href="https://www.allkidsbike.org" target="_blank" rel="noopener">All Kids Bike</a></h3>
+          <p>Kindergarten PE curriculum and a fleet of balance bikes, donated to schools. PS11 has this program.</p>
+        </div>
+        <span class="tag">school program</span>
+      </div>
+      <div class="row pending">
+        <div>
+          <h3>Brooklyn New School</h3>
+          <p>All Kids Bike program status.</p>
+        </div>
+        <span class="tag needs">needs confirmation</span>
+      </div>
+      <div class="row pending">
+        <div>
+          <h3>Sunset Park High School</h3>
+          <p>All Kids Bike program status.</p>
+        </div>
+        <span class="tag needs">needs confirmation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="events" style="--accent-color: var(--pink); --accent-color-pale: var(--pink-pale);">
+    <div class="category-head">
+      <h2>Events</h2>
+      <span class="count">1 upcoming</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="/ps11">PS11 Learn to Ride Day</a></h3>
+          <p>October 17th, PS11's big yard. With Bike New York and whee! — learn about cargo bikes or book a free test ride.</p>
+        </div>
+        <span class="tag">oct 17</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="advocate" style="--accent-color: var(--skyline); --accent-color-pale: var(--skyline-pale);">
+    <div class="category-head">
+      <h2>Advocate for safer streets</h2>
+      <span class="count">2 organizations</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="https://transalt.org/" target="_blank" rel="noopener">Transportation Alternatives</a></h3>
+          <p>Citywide advocacy for safer streets, biking, and walking in NYC.</p>
+        </div>
+        <span class="tag">advocacy</span>
+      </div>
+      <div class="row">
+        <div>
+          <h3><a href="https://ny.familiesforsafestreets.org/" target="_blank" rel="noopener">Families for Safe Streets</a></h3>
+          <p>Support and advocacy from families affected by traffic violence.</p>
+        </div>
+        <span class="tag">advocacy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="city" style="--accent-color: var(--fort-greene); --accent-color-pale: var(--yellow-pale);">
+    <div class="category-head">
+      <h2>City programs</h2>
+      <span class="count">2 programs</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="https://www.nyc.gov/OpenStreets" target="_blank" rel="noopener">Open Streets</a></h3>
+          <p>NYC DOT program turning streets into car-free public space.</p>
+        </div>
+        <span class="tag">nyc dot</span>
+      </div>
+      <div class="row">
+        <div>
+          <h3><a href="https://www.nyc.gov/saferoutes" target="_blank" rel="noopener">Safe Routes to School</a></h3>
+          <p>NYC DOT program and mapping tool for school-area traffic safety.</p>
+        </div>
+        <span class="tag">nyc dot</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="category" id="press" style="--accent-color: var(--pink); --accent-color-pale: var(--pink-pale);">
+    <div class="category-head">
+      <h2>In the press</h2>
+      <span class="count">1 story</span>
+    </div>
+    <div class="listing">
+      <div class="row">
+        <div>
+          <h3><a href="https://www.brooklynpaper.com/nyc-families-cargo-bike-boom/" target="_blank" rel="noopener">Brooklyn Paper</a></h3>
+          <p>"NYC families are riding the cargo bike boom"</p>
+        </div>
+        <span class="tag">brooklyn paper</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="wrap">
+  <span class="wordmark">Bike families, NYC</span>
+  <p>A community-built directory, not affiliated with any one organization listed here.</p>
+</footer>
+
+</body>
+</html>
