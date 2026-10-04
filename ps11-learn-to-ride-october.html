@@ -342,7 +342,6 @@
     document.getElementById('interest-form').addEventListener('submit', async function (e) {
       e.preventDefault();
       const form = e.target;
-      const messageDiv = document.getElementById('form-message');
       const submitButton = form.querySelector('button[type="submit"]');
 
       submitButton.disabled = true;
@@ -376,10 +375,7 @@
       tempForm.submit();
 
       setTimeout(() => {
-        messageDiv.className = 'success';
-        messageDiv.textContent = "Thanks! Pick a test ride time below if you'd like one.";
-        form.style.display = 'none';
-        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        submitButton.textContent = "Thanks. We'll be in touch.";
         document.body.removeChild(tempForm);
         document.body.removeChild(iframe);
       }, 500);
