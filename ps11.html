@@ -66,16 +66,39 @@
   }
   .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
   header {
+    border-bottom: 3px solid var(--skyline);
+    padding: 1.25rem 20px 1.75rem;
+  }
+  .header-top {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .back-link {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .header-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+  .presented-by {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    opacity: 0.8;
+  }
+  .logo-row {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem 20px;
+    gap: 1.5rem;
     flex-wrap: wrap;
-    border-bottom: 3px solid var(--skyline);
+    justify-content: center;
   }
-  header img { height: 44px; width: auto; }
-  header .divider { color: var(--border); font-size: 1.5rem; }
+  .logo-row img { height: 34px; width: auto; }
+  .logo-row .divider { color: var(--border); font-size: 1.25rem; }
   .hero {
     padding: 3rem 20px 2.5rem;
     text-align: center;
@@ -173,62 +196,74 @@
 </style>
 </head>
 <body>
-  <header style="flex-direction: column; gap: 0.5rem;">
-    <div style="display: flex; align-items: center; gap: 1.5rem;">
-      <img src="images/ps11-logo.png" alt="PS11 Brooklyn" style="height: 40px;">
-      <span class="divider">×</span>
-      <img src="images/bike-new-york-logo.svg" alt="Bike New York">
-      <span class="divider">×</span>
-      <img src="images/whee-logo.svg" alt="whee!">
+  <header>
+    <div class="header-top">
+      <a href="/" class="accent back-link">&larr; bike families, nyc</a>
     </div>
-    <a href="/" class="accent" style="font-size: 0.8rem; color: var(--text-light); text-decoration: none;">&larr; bike families, nyc</a>
+    <div class="header-logos">
+      <span class="accent presented-by">presented by</span>
+      <div class="logo-row">
+        <img src="images/ps11-logo.png" alt="PS11 Brooklyn">
+        <span class="divider">×</span>
+        <img src="images/bike-new-york-logo.svg" alt="Bike New York">
+        <span class="divider">×</span>
+        <img src="images/whee-logo.svg" alt="whee!">
+      </div>
+    </div>
   </header>
 
   <section class="hero">
     <div class="container">
       <h1>PS11 learn to ride day</h1>
-      <p>October 17th, the big yard. Come learn about cargo bikes or take one for a test ride.</p>
-      <p class="partners">A joint event with <a href="https://bikenewyork.info/ps11" target="_blank" rel="noopener"><strong>Bike New York</strong></a> and <a href="https://ridewhee.com" target="_blank" rel="noopener"><strong>whee!</strong></a></p>
+      <p>October 17th, 10am&ndash;3pm, in the Big Yard.</p>
+      <p class="partners">Learn to ride with <a href="https://bikenewyork.info/ps11" target="_blank" rel="noopener"><strong>Bike New York</strong></a>. Test ride a cargo bike with <a href="https://ridewhee.com" target="_blank" rel="noopener"><strong>whee!</strong></a></p>
     </div>
   </section>
 
   <section style="padding-bottom: 1rem;">
     <div class="container" style="max-width: 760px;">
-      <div style="border: 2px solid var(--skyline-pale); border-radius: 16px; padding: 2rem 2.5rem; background: #fff; margin-bottom: 2.5rem;">
+      <div style="border: 2px solid var(--skyline-pale); border-radius: 16px; padding: 2rem 2.5rem; background: #fff;">
         <p class="accent" style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.4rem;">with bike new york</p>
         <h2 style="font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; color: var(--bike-lane-black); margin-bottom: 0.6rem;">Kids bike-skills lesson</h2>
         <p style="color: var(--text-light); line-height: 1.5; margin-bottom: 0.4rem;">A free learn-to-ride class for kids, right in the big yard. Bring your own bike and helmet.</p>
         <p style="color: var(--text-light); line-height: 1.5; font-style: italic; margin-bottom: 1.25rem;">Register under the child's name, not a parent's.</p>
         <div id="eventbrite-widget-container-2002634478635"></div>
       </div>
-
-      <p class="accent" style="text-align: center; font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem;">looking to test ride a cargo bike instead? ↓</p>
-
-      <div id="form-message"></div>
-      <form id="interest-form">
-        <div class="fields">
-          <div class="field">
-            <label for="name">Your name *</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email address *</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-        </div>
-        <input type="hidden" id="bike-model" name="bike_model" value="PS11 Learn to Ride Day - interested">
-        <input type="hidden" id="status" name="status" value="Available">
-        <input type="hidden" id="timestamp" name="timestamp">
-        <input type="hidden" id="referrer" name="referrer">
-        <input type="hidden" id="user-agent" name="user_agent">
-        <button type="submit">I'm interested in learning more about cargo bikes</button>
-      </form>
     </div>
   </section>
 
   <section>
     <div class="container" style="max-width: 900px;">
-      <div id="cal-inline" style="width:100%;min-height:650px;border-radius:12px;overflow:hidden;"></div>
+      <div style="border: 2px solid var(--skyline-pale); border-radius: 16px; padding: 2rem 2.5rem 2.5rem; background: #fff;">
+        <p class="accent" style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.4rem;">with whee!</p>
+        <h2 style="font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; color: var(--bike-lane-black); margin-bottom: 0.6rem;">Test ride a cargo bike</h2>
+        <p style="color: var(--text-light); line-height: 1.5; margin-bottom: 1.5rem;">Pick a 15-minute slot on October 17th, right in the big yard.</p>
+
+        <div id="cal-inline" style="width:100%;min-height:650px;border-radius:12px;overflow:hidden;"></div>
+
+        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+          <p class="accent" style="text-align: center; font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.25rem;">can't make it that day?</p>
+          <div id="form-message"></div>
+          <form id="interest-form" style="border: none; box-shadow: none; background: var(--cream); padding: 2rem;">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Your name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+            <input type="hidden" id="bike-model" name="bike_model" value="PS11 Learn to Ride Day - interested">
+            <input type="hidden" id="status" name="status" value="Available">
+            <input type="hidden" id="timestamp" name="timestamp">
+            <input type="hidden" id="referrer" name="referrer">
+            <input type="hidden" id="user-agent" name="user_agent">
+            <button type="submit">I'm interested in learning more about cargo bikes</button>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -258,7 +293,15 @@
     Cal("inline", {
       elementOrSelector: "#cal-inline",
       calLink: "ridewhee/ps11-learn-to-ride",
-      layout: "month_view"
+      config: {
+        layout: "month_view",
+        theme: "light"
+      }
+    });
+    Cal("ui", {
+      theme: "light",
+      styles: { branding: { brandColor: "#79A3DB" } },
+      hideEventTypeDetails: false
     });
   </script>
 
