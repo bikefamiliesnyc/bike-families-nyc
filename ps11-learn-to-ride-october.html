@@ -165,6 +165,20 @@
     color: var(--bike-lane-black);
   }
   .field input:focus { outline: none; border-color: var(--skyline); }
+  .checkbox-group { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--bike-lane-black);
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--skyline);
+    flex-shrink: 0;
+  }
   button {
     width: 100%;
     margin-top: 1.5rem;
@@ -217,7 +231,7 @@
       <h1>PS11 learn to ride day</h1>
       <p>October 17th, 10am&ndash;3pm, in the Big Yard.</p>
       <p class="partners">Learn to ride with <a href="https://bikenewyork.info/ps11" target="_blank" rel="noopener"><strong>Bike New York</strong></a>. Test ride a cargo bike with <a href="https://ridewhee.com" target="_blank" rel="noopener"><strong>whee!</strong></a></p>
-      <p style="margin-top: 1rem; font-weight: 600; color: var(--bike-lane-black);">Kids can sign up to learn to ride a bike. Grown-ups can sign up to test ride a cargo bike. Scroll down to do both ↓</p>
+      <p style="margin-top: 1rem; font-weight: 600; color: var(--bike-lane-black);">Kids can sign up to learn to ride a bike. Grown-ups can sign up to test ride a cargo bike. Scroll down to schedule either or both ↓</p>
     </div>
   </section>
 
@@ -237,7 +251,7 @@
     <div class="container" style="max-width: 900px;">
       <div style="border: 2px solid var(--skyline-pale); border-radius: 16px; padding: 2rem 2.5rem 2.5rem; background: #fff;">
         <p class="accent" style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.4rem;">with whee!</p>
-        <h2 style="font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; color: var(--bike-lane-black); margin-bottom: 0.6rem;">Test ride a cargo bike</h2>
+        <h2 style="font-family: var(--font-display); font-weight: 500; font-size: 1.6rem; color: var(--bike-lane-black); margin-bottom: 0.6rem;">Test Ride a Cargo Bike&ndash;Adults</h2>
         <p style="color: var(--text-light); line-height: 1.5; margin-bottom: 1.5rem;">Pick a 15-minute slot on October 17th, right in the big yard.</p>
 
         <div id="cal-inline" style="width:100%;min-height:650px;border-radius:12px;overflow:hidden;"></div>
@@ -256,12 +270,22 @@
                 <input type="email" id="email" name="email" required>
               </div>
             </div>
+            <div class="checkbox-group">
+              <label class="checkbox-row">
+                <input type="checkbox" name="interested_cargo_bike" value="yes">
+                I'm interested in learning more about cargo bikes
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="interested_bike_lessons" value="yes">
+                I'm interested in bike lessons for my child
+              </label>
+            </div>
             <input type="hidden" id="bike-model" name="bike_model" value="PS11 Learn to Ride Day - interested">
             <input type="hidden" id="status" name="status" value="Available">
             <input type="hidden" id="timestamp" name="timestamp">
             <input type="hidden" id="referrer" name="referrer">
             <input type="hidden" id="user-agent" name="user_agent">
-            <button type="submit">I'm interested in learning more about cargo bikes</button>
+            <button type="submit">Sign me up</button>
           </form>
         </div>
       </div>
