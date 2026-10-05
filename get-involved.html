@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved</title>
+<meta name="description" content="Help organize family biking in your part of NYC — group rides, school programs, or just lending a hand.">
+<style>
+  @font-face {
+    font-family: 'P22 Mackinac Pro';
+    src: url('fonts/P22MackinacPro-Medium_26.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Halyard Display';
+    src: url('fonts/fonnts.com-Halyard_Display_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Halyard Display';
+    src: url('fonts/fonnts.com-Halyard_Display_Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Anonymous Pro';
+    src: url('fonts/AnonymousPro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --font-display: 'P22 Mackinac Pro', Georgia, serif;
+    --font-body: 'Halyard Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-accent: 'Anonymous Pro', 'Courier New', monospace;
+
+    --skyline: #79A3DB;
+    --skyline-pale: #CCDCFF;
+    --bike-lane-black: #06272E;
+    --cream: #F9F5EE;
+    --fort-greene: #D7C725;
+    --text-light: #4B6066;
+    --border: #E3DFD2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font-body);
+    color: var(--bike-lane-black);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  .accent { font-family: var(--font-accent); text-transform: lowercase; letter-spacing: 0.02em; }
+  .container { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 3px solid var(--skyline); padding: 1.25rem 20px; }
+  .back-link { font-size: 0.8rem; color: var(--text-light); text-decoration: none; }
+  .hero { padding: 3rem 20px 2rem; text-align: center; }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    font-weight: 500;
+    color: var(--bike-lane-black);
+    margin-bottom: 1rem;
+  }
+  .hero p { font-size: 1.1rem; color: var(--text-light); max-width: 480px; margin: 0 auto; line-height: 1.5; }
+  section { padding: 0 20px 4rem; }
+  form {
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(6, 39, 46, 0.06);
+  }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .field { margin-bottom: 1.5rem; }
+  .field:last-of-type { margin-bottom: 0; }
+  .field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--bike-lane-black); }
+  .field input, .field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--bike-lane-black);
+  }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--skyline); }
+  button {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: var(--skyline);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  button:hover { background: #5f8ccb; }
+  button:disabled { opacity: 0.6; cursor: default; }
+  footer { text-align: center; padding: 2rem 20px 3rem; color: var(--text-light); font-size: 0.9rem; border-top: 3px solid var(--fort-greene); }
+  footer a { color: var(--bike-lane-black); }
+  @media (max-width: 500px) {
+    .fields { grid-template-columns: 1fr; }
+    .field.full { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="accent back-link">&larr; bike families, nyc</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Get involved</h1>
+      <p>Help organize family biking in your part of NYC — lead a ride, help run an admin for the citywide chat, or just lend a hand.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <form id="involved-form">
+        <div class="fields">
+          <div class="field">
+            <label for="name">Your name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="school">School (if applicable)</label>
+          <input type="text" id="school" name="school">
+        </div>
+        <div class="field">
+          <label for="how">How you'd like to get involved *</label>
+          <textarea id="how" name="how_to_help" required></textarea>
+        </div>
+        <button type="submit">Count me in</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>Questions? <a href="mailto:bikefamiliesnyc@gmail.com">bikefamiliesnyc@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function silentPost(url, data) {
+      const name = 'hidden-iframe-' + Math.random().toString(36).slice(2);
+      const iframe = document.createElement('iframe');
+      iframe.name = name;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const tempForm = document.createElement('form');
+      tempForm.method = 'POST';
+      tempForm.action = url;
+      tempForm.target = name;
+      tempForm.style.display = 'none';
+
+      Object.keys(data).forEach(key => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = data[key];
+        tempForm.appendChild(input);
+      });
+
+      document.body.appendChild(tempForm);
+      tempForm.submit();
+
+      setTimeout(() => {
+        document.body.removeChild(tempForm);
+        document.body.removeChild(iframe);
+      }, 1000);
+    }
+
+    document.getElementById('involved-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      data._subject = 'Someone wants to get involved — Bike Families NYC';
+      data._captcha = 'false';
+
+      silentPost('https://formsubmit.co/bikefamiliesnyc@gmail.com', data);
+
+      setTimeout(() => {
+        submitButton.textContent = "Thanks. We'll be in touch.";
+      }, 500);
+    });
+  </script>
+</body>
+</html>

@@ -78,6 +78,13 @@
     opacity: 0.7;
     margin-bottom: 0.75rem;
   }
+  .hero-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
   .masthead h1 {
     font-size: clamp(2.5rem, 7vw, 3.75rem);
     font-weight: 500;
@@ -214,8 +221,11 @@
 <header class="masthead">
   <div class="wrap">
     <p class="eyebrow accent">a directory for nyc · updated october 2026</p>
-    <h1>Bike families, <em>NYC</em></h1>
-    <p>Everything a biking family in New York City needs in one place — group rides, learn-to-ride programs, school bike days, connecting with other parents, and the people fighting for safer streets.</p>
+    <div class="hero-title-row">
+      <h1>Bike families, <em>NYC</em></h1>
+      <a class="submit-event-btn" href="get-involved.html">Get involved</a>
+    </div>
+    <p>Everything a biking family in New York City needs in one place — group rides, learn-to-ride programs, school bike days, connecting with other parents, and the people working for safer streets.</p>
   </div>
 </header>
 
@@ -239,7 +249,6 @@
     <div class="category-head">
       <h2>Questions? Connect with other bike families.</h2>
       <span class="count">3 groups</span>
-      <a class="submit-event-btn" href="mailto:bikefamiliesnyc@gmail.com?subject=I%20want%20to%20get%20involved%20with%20Bike%20Families%20NYC">Get involved</a>
     </div>
     <div class="listing">
       <div class="row">
@@ -322,7 +331,7 @@
   <div class="category" id="schools" style="--accent-color: var(--fort-greene); --accent-color-pale: var(--yellow-pale);">
     <div class="category-head">
       <h2>Bike-friendly schools</h2>
-      <span class="count">7 listings</span>
+      <span class="count">5 listings</span>
     </div>
     <div class="listing">
       <div class="row">
@@ -346,23 +355,9 @@
         </div>
         <span class="tag">high school</span>
       </div>
-      <div class="row">
-        <div>
-          <h3><a href="https://support.allkidsbike.org/nyc-doe-cohort-3" target="_blank" rel="noopener">All Kids Bike — Staten Island Cohort</a></h3>
-          <p>Five Staten Island elementary schools running the program: PS 26 Thompson, PS 46 Albert V. Maniscalco, PS 45 The John Tyler School, PS 62 The Kathleen Grimm School, and PS 1 Tottenville.</p>
-        </div>
-        <span class="tag">staten island</span>
-      </div>
     </div>
     <p class="accent" style="text-align: center; font-size: 0.9rem; color: var(--text-light); margin: 2rem 0 1.25rem;">want to get bikes in your school?</p>
     <div class="listing">
-      <div class="row">
-        <div>
-          <h3><a href="https://www.cyclekids.org/" target="_blank" rel="noopener">CYCLE Kids</a></h3>
-          <p>National nonprofit curriculum for 4th and 5th graders combining bike riding with nutrition education. Provides bikes, curriculum, and teacher training.</p>
-        </div>
-        <span class="tag">program</span>
-      </div>
       <div class="row">
         <div>
           <h3><a href="https://infohub.nyced.org/in-our-schools/operations/bike-new-york-program" target="_blank" rel="noopener">Get Kids Biking!</a></h3>
