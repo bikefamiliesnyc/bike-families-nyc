@@ -210,6 +210,8 @@
     white-space: nowrap;
   }
   .tag.needs { color: #9c3f78; background: var(--pink-pale); }
+  .row.soon { border-left-width: 7px; box-shadow: 0 2px 10px rgba(242, 149, 206, 0.35); }
+  .tag.soon { background: var(--pink); color: #fff; }
   @media (max-width: 560px) {
     .row { grid-template-columns: 1fr; }
     .tag { justify-self: start; }
@@ -389,14 +391,14 @@
       <a class="submit-event-btn" href="mailto:bikefamiliesnyc@gmail.com?subject=Event%20submission%20for%20Bike%20Families%20NYC">Submit an event</a>
     </div>
     <div class="listing">
-      <div class="row">
+      <div class="row" data-event-date="2026-10-17">
         <div>
           <h3><a href="/ps11-learn-to-ride-october">PS11 Learn to Ride Day</a></h3>
           <p>October 17th, PS11's big yard. With Bike New York and whee! — learn about cargo bikes or book a free test ride.</p>
         </div>
         <span class="tag">oct 17</span>
       </div>
-      <div class="row">
+      <div class="row" data-event-date="2027-04-10">
         <div>
           <h3><a href="https://ps11familybikeday.org" target="_blank" rel="noopener">PS11 Family Bike Day</a></h3>
           <p>April 10, 2027, at PS11. A day of family rides, bike activities, and community for Brooklyn families.</p>
@@ -518,6 +520,24 @@
   <span class="wordmark">Bike families, NYC</span>
   <p>A community-built directory, not affiliated with any one organization listed here.</p>
 </footer>
+
+<script>
+  (function () {
+    var now = new Date();
+    document.querySelectorAll('#events .row[data-event-date]').forEach(function (row) {
+      var eventDate = new Date(row.dataset.eventDate + 'T23:59:59');
+      var daysUntil = Math.ceil((eventDate - now) / 86400000);
+      if (daysUntil >= 0 && daysUntil <= 14) {
+        row.classList.add('soon');
+        var tag = row.querySelector('.tag');
+        if (tag) {
+          tag.classList.add('soon');
+          tag.textContent = daysUntil === 0 ? 'today!' : daysUntil === 1 ? 'tomorrow!' : 'in ' + daysUntil + ' days';
+        }
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
