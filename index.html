@@ -548,7 +548,8 @@
         }
       }
     });
-    if (soonest) {
+    var SHOW_EVENT_BANNER = false; // flip to true to re-enable the top banner
+    if (soonest && SHOW_EVENT_BANNER) {
       var banner = document.getElementById('event-banner');
       var titleLink = soonest.row.querySelector('h3 a');
       var dateLabel = soonest.eventDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
