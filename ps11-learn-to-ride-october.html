@@ -165,7 +165,7 @@
     margin-bottom: 0.5rem;
     color: var(--bike-lane-black);
   }
-  .field input {
+  .field input, .field textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 2px solid var(--border);
@@ -175,7 +175,8 @@
     background: var(--cream);
     color: var(--bike-lane-black);
   }
-  .field input:focus { outline: none; border-color: var(--skyline); }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--skyline); }
   .checkbox-group { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
   .checkbox-row {
     display: flex;
@@ -290,6 +291,10 @@
                 <input type="checkbox" name="interested_bike_lessons" value="yes">
                 I'm interested in bike lessons for my child
               </label>
+            </div>
+            <div class="field" style="margin-top: 1.5rem;">
+              <label for="message">Anything else you'd like to share? (optional)</label>
+              <textarea id="message" name="message"></textarea>
             </div>
             <input type="hidden" id="bike-model" name="bike_model" value="PS11 Learn to Ride Day - interested">
             <input type="hidden" id="status" name="status" value="Available">
