@@ -412,6 +412,7 @@
         silentPost('https://formsubmit.co/bikefamiliesnyc@gmail.com', {
           name: data.name,
           email: data.email,
+          message: data.message || '',
           _subject: 'Bike lesson interest — PS11 Learn to Ride Day',
           _captcha: 'false'
         });
