@@ -116,6 +116,21 @@
     line-height: 1.5;
     color: var(--text-light);
   }
+  .subscribe-card {
+    margin-top: 2rem;
+    border: 2px solid var(--skyline-pale);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    background: #fff;
+    max-width: 520px;
+  }
+  .subscribe-card .subscribe-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--bike-lane-black);
+    margin-bottom: 0.9rem;
+  }
+  .subscribe-card iframe { display: block; max-width: 100%; }
 
   nav.routes {
     display: flex;
@@ -253,6 +268,10 @@
       <a class="submit-event-btn" href="get-involved.html">Get involved</a>
     </div>
     <p>Everything a biking family in New York City needs in one place — group rides, learn-to-ride programs, school bike days, connecting with other parents, and the people working for safer streets.</p>
+    <div class="subscribe-card">
+      <p class="subscribe-label">Get occasional updates — new resources, events, and ways to help.</p>
+      <iframe src="https://bikefamiliesnyc.substack.com/embed" width="480" height="280" style="border:1px solid #EEE; background:white; width:100%;" frameborder="0" scrolling="no"></iframe>
+    </div>
   </div>
 </header>
 
